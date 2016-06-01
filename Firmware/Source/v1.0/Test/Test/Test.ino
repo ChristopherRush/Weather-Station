@@ -28,7 +28,7 @@ long mph;
 
 void setup()
 {
-    // Serial.begin(38400);         // start serial for output
+    Serial.begin(9600);         // start serial for output
     Wire.begin(SLAVE_ADDRESS);
 
     Wire.onReceive(receiveData);
@@ -49,8 +49,8 @@ if (millis() - lastmillis == 1000){
   half_revolutions = 0;
   lastmillis = millis();
   attachInterrupt(digitalPinToInterrupt(anenometerPin), wind, FALLING);
-  mph = diameter / 12 * 3.14 * rpm * 60 / 5280;
-  mph = mph * 3.5;
+  //mph = diameter / 12 * 3.14 * rpm * 60 / 5280;
+  //mph = mph * 3.5;
 
 }
 
@@ -79,10 +79,6 @@ if (millis() - lastmillis == 1000){
     else if(cmd[0]==5)
       pinMode(cmd[1],cmd[2]);
 
-    else if (cmd[0]==7){
-      mph_b[1]=mph/256;
-      mph_b[2]=mph%256;
-    }
 
     //Firmware version
     else if(cmd[0]==8)
@@ -115,10 +111,10 @@ void sendData()
     Wire.write(val);
   if(cmd[0] == 3 || cmd[0] == 56)
     Wire.write(b, 3);
+
   if(cmd[0] == 7)
   {
-    Wire.write(mph_b, 3);
-    cmd[0] = 0;
+    Wire.write(rpm);
   }
   if(cmd[0] == 8 || cmd[0] == 20)
     Wire.write(b, 4);
