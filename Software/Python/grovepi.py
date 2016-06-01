@@ -207,8 +207,8 @@ def temp36(pin):
 def anenometerRead():
 	write_i2c_block(address, aa_cmd + [unused, unused, unused])
 	time.sleep(.2)
-	read_i2c_byte(address)
-	number = read_i2c_block(address)
+	number = read_i2c_byte(address)
+
 	return number
 
 
