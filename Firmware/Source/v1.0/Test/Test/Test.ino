@@ -17,6 +17,14 @@ int8_t accv[3];
 byte rgb[] = { 0, 0, 0 };
 int run_once;
 
+//Anenometer Variables
+const int anenometerPin = 2;
+int half_revolutions = 0;
+int rpm = 0;
+unsigned long lastmillis = 0;
+float diameter = 2.75; //inches from center pin to middle of cup
+float mph;
+
 
 void setup()
 {
@@ -25,12 +33,27 @@ void setup()
 
     Wire.onReceive(receiveData);
     Wire.onRequest(sendData);
+
+    pinMode(anenometerPin, INPUT_PULLUP);
+    attachInterrupt(digitalPinToInterrupt(1 , wind, FALLING);
 	//attachInterrupt(0,readPulseDust,CHANGE);
 }
 int pin;
 int j;
 void loop()
 {
+//Anenometer Read
+if (millis() - lastmillis == 1000){
+  detachInterrupt(0);
+  rpm = half_revolutions * 30;
+  half_revolutions = 0;
+  lastmillis = millis();
+  attachInterrupt(digitalPinToInterrupt(anenometerPin), wind, FALLING);
+  mph = diameter / 12 * 3.14 * rpm * 60 / 5280;
+  mph = mph * 3.5;
+
+}
+
 
     //Digital Read
     if (cmd[0]==1)
@@ -55,6 +78,11 @@ void loop()
     //Set up pinMode
     else if(cmd[0]==5)
       pinMode(cmd[1],cmd[2]);
+
+    else if (cmd[0]==7){
+      mph_b[1]=mph/256;
+      mph_b[2]=mph%256;
+    }
 
     //Firmware version
     else if(cmd[0]==8)
@@ -89,7 +117,7 @@ void sendData()
     Wire.write(b, 3);
   if(cmd[0] == 7)
   {
-    Wire.write(ultrasonic_b, 3);
+    Wire.write(mph_b, 3);
     cmd[0] = 0;
   }
   if(cmd[0] == 8 || cmd[0] == 20)
@@ -109,3 +137,6 @@ void sendData()
   }
 
 }
+void fan(){
+  half_revolutions++;
+ }
