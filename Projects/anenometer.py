@@ -9,6 +9,6 @@ while True:
         print(grovepi.anenometerRead(2))
 
     except TypeError:
-        print ("Error")
+        print ("Error 1")
     except IOError:
-        print ("Error")
+        print ("Error 2")
