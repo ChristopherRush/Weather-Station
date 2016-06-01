@@ -45,6 +45,8 @@ aWrite_cmd = [4]
 pMode_cmd = [5]
 # Ultrasonic read
 uRead_cmd = [7]
+# Anenometer read
+aa_cmd = [7]
 # Get firmware version
 version_cmd = [8]
 # Accelerometer (+/- 1.5g) read
@@ -200,6 +202,14 @@ def temp36(pin):
 	volts = a * 5.0 / 1024
 	t = (volts - 0.5) * 100
 	return t
+
+# Read value from Grove Ultrasonic
+def anenometerRead():
+	write_i2c_block(address, aa_cmd + [unused, unused, unused])
+	time.sleep(.2)
+	read_i2c_byte(address)
+	number = read_i2c_block(address)
+	return (number[1] * 256 + number[2])
 
 
 # Read value from Grove Ultrasonic
