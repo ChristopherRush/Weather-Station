@@ -8,7 +8,7 @@ int cmd[5];
 int index=0;
 int flag=0;
 int i;
-byte val=0,b[21],float_array[4],dht_b[21],ultrasonic_b[3];
+byte val=0,b[21],float_array[4],dht_b[21],ultrasonic_b[3],mph_b[3];
 unsigned char dta[21];
 int length;
 int aRead=0;
@@ -23,7 +23,7 @@ int half_revolutions = 0;
 int rpm = 0;
 unsigned long lastmillis = 0;
 float diameter = 2.75; //inches from center pin to middle of cup
-float mph;
+long mph;
 
 
 void setup()
@@ -35,7 +35,7 @@ void setup()
     Wire.onRequest(sendData);
 
     pinMode(anenometerPin, INPUT_PULLUP);
-    attachInterrupt(digitalPinToInterrupt(1 , wind, FALLING);
+    attachInterrupt(digitalPinToInterrupt(anenometerPin), wind, FALLING);
 	//attachInterrupt(0,readPulseDust,CHANGE);
 }
 int pin;
@@ -137,6 +137,6 @@ void sendData()
   }
 
 }
-void fan(){
+void wind(){
   half_revolutions++;
  }
