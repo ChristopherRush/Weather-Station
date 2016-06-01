@@ -71,6 +71,11 @@ if (millis() - lastmillis == 1000){
       b[2]=aRead%256;
     }
 
+    else if(cmd[0]==7)
+    {
+      val = rpm;
+    }
+
     //Set up Analog Write
     else if(cmd[0]==4)
       analogWrite(cmd[1],cmd[2]);
@@ -114,7 +119,7 @@ void sendData()
 
   if(cmd[0] == 7)
   {
-    Wire.write(rpm);
+    Wire.write(val);
   }
   if(cmd[0] == 8 || cmd[0] == 20)
     Wire.write(b, 4);
