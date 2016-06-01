@@ -6,7 +6,7 @@ import grovepi
 while True:
     try:
         # Read distance value from Ultrasonic
-        print(grovepi.anenometerRead())
+        print(grovepi.anenometerRead(2))
 
     except TypeError:
         print ("Error")
