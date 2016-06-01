@@ -209,7 +209,7 @@ def anenometerRead():
 	time.sleep(.2)
 	number = read_i2c_byte(address)
 	mph = diameter / 12 * 3.14 * number * 60 / 5280
-    val = mph * 3.5
+	val = mph * 3.5
 	return val
 
 
