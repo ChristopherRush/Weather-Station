@@ -49,7 +49,7 @@ if (millis() - lastmillis == 1000){
   half_revolutions = 0;
   lastmillis = millis();
   attachInterrupt(digitalPinToInterrupt(anenometerPin), wind, FALLING);
-  //mph = diameter / 12 * 3.14 * rpm * 60 / 5280;
+  //mph = 2.75 / 12 * 3.14 * rpm * 60 / 5280;
   //mph = mph * 3.5;
 
 }
