@@ -8,7 +8,7 @@ sensor = 1
 while True:
     try:
         temp = grovepi.temp36(sensor)
-        round(temp,2)
+        temp = round(temp,2)
         print("temp =", temp)
         time.sleep(.5)
 
