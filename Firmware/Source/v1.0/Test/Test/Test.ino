@@ -18,12 +18,15 @@ byte rgb[] = { 0, 0, 0 };
 int run_once;
 
 //Anenometer Variables
+
+
+
 const int anenometerPin = 2;
 int half_revolutions = 0;
 int rpm = 0;
 unsigned long lastmillis = 0;
-float diameter = 2.75; //inches from center pin to middle of cup
-long mph;
+//float diameter = 2.75; //inches from center pin to middle of cup
+//long mph;
 
 
 void setup()
@@ -35,14 +38,17 @@ void setup()
     Wire.onRequest(sendData);
 
     pinMode(anenometerPin, INPUT_PULLUP);
-    attachInterrupt(digitalPinToInterrupt(anenometerPin), wind, FALLING);
+    attachInterrupt(digitalPinToInterrupt(anenometerPin), rpm_fan, FALLING);
+
 	//attachInterrupt(0,readPulseDust,CHANGE);
+
 }
 int pin;
 int j;
 void loop()
 {
 //Anenometer Read
+/*
 if (millis() - lastmillis == 1000){
   detachInterrupt(0);
   rpm = half_revolutions * 30;
@@ -53,6 +59,15 @@ if (millis() - lastmillis == 1000){
   //mph = mph * 3.5;
 
 }
+*/
+if (millis() - lastmillis == 1000){ //Uptade every one second, this will be equal to reading frecuency (Hz).
+ detachInterrupt(0);//Disable interrupt when calculating
+ rpm = half_revolutions; // Convert frecuency to RPM, note: this works for one interruption per full rotation. For two interrups per full rotation use half_revolutions * 30.
+
+ half_revolutions = 0; // Restart the RPM counter
+ lastmillis = millis(); // Uptade lasmillis
+ attachInterrupt(0, rpm_fan, FALLING); //enable interrupt
+  }
 
 
     //Digital Read
@@ -138,6 +153,6 @@ void sendData()
   }
 
 }
-void wind(){
+void rpm_fan(){
   half_revolutions++;
  }

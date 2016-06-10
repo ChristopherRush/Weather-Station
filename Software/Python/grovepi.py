@@ -208,9 +208,11 @@ def anenometerRead():
 	write_i2c_block(address, aa_cmd + [unused, unused, unused])
 	time.sleep(.2)
 	number = read_i2c_byte(address)
+	rpm = number * 60
+	mph = 0.22 * 3.14 * rpm * 60 / 5280
 	#mph = 2.75 / 12 * 3.14 * number * 60 / 5280
 	#val = mph * 3.5
-	return number
+	return mph
 
 
 # Read value from Grove Ultrasonic
