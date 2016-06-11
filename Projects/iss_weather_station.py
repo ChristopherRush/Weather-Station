@@ -11,4 +11,5 @@ while True:
     temp = round(temp,2)
     streamer.log("Temperature", temp)
     print (temp)
+    streamer.flush() 
     time.sleep(30)
