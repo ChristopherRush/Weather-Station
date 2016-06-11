@@ -12,7 +12,7 @@ grovepi.pinMode(vane, "INPUT")
 
 while True:
     temp = grovepi.analogRead(sensor)
-    volt = temp * 5.0 / 1024
+    volt = temp * 3.3 / 1024
     number = (volt - 0.5) * 100
     number = round(number, 2)
     print (number)
