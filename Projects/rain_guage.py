@@ -1,4 +1,4 @@
-import grovepi
+from grovepi import *
 import time, datetime
 
 guage = 3
