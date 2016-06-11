@@ -11,7 +11,7 @@ import math
 import struct
 
 debug =0
-
+millimeters =0
 if sys.version_info<(3,0):
 	p_version=2
 else:
