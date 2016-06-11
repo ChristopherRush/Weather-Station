@@ -5,6 +5,7 @@ from ISStreamer.Streamer import Streamer
 streamer = Streamer(bucket_name="weather", bucket_key="63CXMKAEQVFR", access_key="NXNfXQSbMgvPPSqD0gEEr0zX3OHeam2r")
 
 sensor = 1
+vane = 0
 
 while True:
     temp = grovepi.temp36(sensor)
@@ -43,6 +44,6 @@ while True:
         streamer.log("Wind Direction", "North East")
         #print "North East"
 
-        
+
     streamer.flush()
     time.sleep(30)
