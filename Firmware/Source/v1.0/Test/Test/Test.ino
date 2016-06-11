@@ -27,6 +27,7 @@ unsigned long lastmillis = 0;
 //rain sensor
 int rainpin = 3;
 int inches;
+int state;
 
 void setup()
 {
@@ -62,7 +63,6 @@ if (state == HIGH){
 
   inches++;
   delay(500);
-  lastcheck = millis();
   }
 
 
@@ -128,7 +128,7 @@ void sendData()
     Wire.write(b, 3);
   if(cmd[0] == 6)
   {
-  Wire.write(val);
+  Wire.write(inches);
   }
   if(cmd[0] == 7)
   {
