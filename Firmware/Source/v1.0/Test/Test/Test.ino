@@ -78,6 +78,9 @@ if (state == HIGH){
     else if(cmd[0]==3)
     {
       aRead=analogRead(cmd[1]);
+      delay(10);
+      aRead=analogRead(cmd[1]);
+      delay(10);
       b[1]=aRead/256;
       b[2]=aRead%256;
     }
