@@ -11,3 +11,4 @@ while True:
         print ("ON")
     else:
         print ("OFF")
+    time.sleep(1)
