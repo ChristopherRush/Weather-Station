@@ -11,10 +11,12 @@ grovepi.pinMode(sensor, "INPUT")
 grovepi.pinMode(vane, "INPUT")
 
 while True:
-    temp = grovepi.temp36(sensor)
-    temp = round(temp,2)
-    streamer.log("Temperature", temp)
-    print (temp)
+    temp = grovepi.analogRead(sensor)
+    volt = temp * 5.0 / 1024
+    number = (volt - 0.5) * 100
+    number = round(number, 2)
+    print (number)
+    streamer.log("Temperature", number)
 
     speed = grovepi.anenometerRead()
     streamer.log("Wind Speed", speed)
