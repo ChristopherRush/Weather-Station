@@ -7,8 +7,8 @@ grovepi.pinMode(sensor, "INPUT")
 
 while True:
     temp = grovepi.analogRead(sensor)
-    volts = temp * 5.0 / 1024
-    t = (volts - 0.5) * 100
-    t = round(t, 2)
-    print (t)
+    volt = temp * 5.0 / 1024
+    number = (volt - 0.5) * 100
+    number = round(t, 2)
+    print (number)
     time.sleep(1)
