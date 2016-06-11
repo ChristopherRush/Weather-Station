@@ -11,14 +11,14 @@ while True:
     temp = grovepi.temp36(sensor)
     temp = round(temp,2)
     streamer.log("Temperature", temp)
-    #print (temp)
+    print (temp)
 
     speed = grovepi.anenometerRead()
     streamer.log("Wind Speed", speed)
-    #print (speed)
+    print (speed)
 
     direction = grovepi.analogRead(vane)
-    print direction
+    #print direction
     if direction == 234:
         streamer.log("Wind Direction", "North")
         #print "North"
