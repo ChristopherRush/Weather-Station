@@ -7,7 +7,7 @@ vane = 0
 while True:
     direction = grovepi.analogRead(vane)
     print direction
-    if direction == 235:
+    if direction == 234:
         print "North"
     elif direction == 133:
         print "North West"
@@ -17,9 +17,9 @@ while True:
         print "South West"
     elif direction == 734:
         print "South"
-    elif direction == 837:
+    elif direction == 838:
         print "South East"
-    elif direction == 929:
+    elif direction == 930:
         print "East"
     elif direction == 559:
         print "North East"
