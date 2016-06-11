@@ -201,9 +201,9 @@ def rain_gauge(pin):
 	write_i2c_block(address, rain_cmd + [unused, unused, unused])
 	time.sleep(.2)
 	val = read_i2c_byte(address)
-	number += val
-	number = number * 0.3
-	return number
+	millimeters += val
+	mm = millimeters * 0.3
+	return mm
 
 
 
