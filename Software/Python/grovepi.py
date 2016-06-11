@@ -43,6 +43,8 @@ aRead_cmd = [3]
 aWrite_cmd = [4]
 # pinMode() command format header
 pMode_cmd = [5]
+# Rain gauge
+rain_cmd = [6]
 # Ultrasonic read
 uRead_cmd = [7]
 # Anenometer read
@@ -193,6 +195,14 @@ def analogRead(pin):
 def analogWrite(pin, value):
 	write_i2c_block(address, aWrite_cmd + [pin, value, unused])
 	return 1
+
+# Read the value of the Rain Gauge
+def rain_gauge(pin):
+	write_i2c_block(address, rain_cmd + [unused, unused, unused])
+	time.sleep(.2)
+	val = read_i2c_byte(address)
+	return val
+
 
 
 # Read temp in Celsius from Grove Temperature Sensor

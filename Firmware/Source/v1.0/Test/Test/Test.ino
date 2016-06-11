@@ -24,7 +24,9 @@ int half_revolutions = 0;
 int rpm = 0;
 unsigned long lastmillis = 0;
 
-
+//rain sensor
+int rainpin = 3;
+int inches;
 
 void setup()
 {
@@ -54,6 +56,16 @@ if (millis() - lastmillis == 1000){ //Uptade every one second, this will be equa
  attachInterrupt(0, rpm_fan, FALLING); //enable interrupt
   }
 
+//Rain Gauge
+state = digitalRead(rainpin);
+if (state == HIGH){
+
+  inches++;
+  delay(500);
+  lastcheck = millis();
+  }
+
+
     //Digital Read
     if (cmd[0]==1)
       val=digitalRead(cmd[1]);
@@ -69,7 +81,6 @@ if (millis() - lastmillis == 1000){ //Uptade every one second, this will be equa
       b[1]=aRead/256;
       b[2]=aRead%256;
     }
-
     else if(cmd[0]==7)
     {
       val = rpm;
@@ -115,7 +126,10 @@ void sendData()
     Wire.write(val);
   if(cmd[0] == 3 || cmd[0] == 56)
     Wire.write(b, 3);
-
+  if(cmd[0] == 6)
+  {
+  Wire.write(val);
+  }
   if(cmd[0] == 7)
   {
     Wire.write(val);

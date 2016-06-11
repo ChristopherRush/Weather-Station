@@ -1,14 +1,11 @@
-from grovepi import *
+import grovepi
 import time, datetime
 
-guage = 3
+gauge = 3
 
-pinMode(guage, "INPUT")
+
 
 while True:
-    rain_status = digitalRead(guage)
-    if rain_status:
-        print ("ON")
-    else:
-        print ("OFF")
-    
+    inches = grovepi.rain_gauge(gauge)
+    print (inches)
+    time.sleep(1)
