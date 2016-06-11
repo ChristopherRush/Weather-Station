@@ -2,7 +2,7 @@ import time
 import grovepi
 from ISStreamer.Streamer import Streamer
 
-streamer = Streamer(bucket_name="weather test", bucket_key="[TPA5P4TVJA5J]", access_key="[EaWzZnoEuilOAxVi8tz3USRhW6ZnclWW]")
+streamer = Streamer(bucket_name="weather", bucket_key="[TPA5P4TVJA5J]", access_key="[EaWzZnoEuilOAxVi8tz3USRhW6ZnclWW]")
 
 sensor = 1
 
