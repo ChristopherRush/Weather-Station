@@ -134,21 +134,7 @@ void sendData()
   {
     Wire.write(val);
   }
-  if(cmd[0] == 8 || cmd[0] == 20)
-    Wire.write(b, 4);
-  if(cmd[0] == 30)
-    Wire.write(b, 9);
-  if(cmd[0] == 40)
-  {
-    Wire.write(dht_b, 9);
-    cmd[0] = 0;
-  }
 
-  if(cmd[0]==21)
-  {
-    Wire.write(b,21);
-    b[0]=0;
-  }
 
 }
 void rpm_fan(){

@@ -11,5 +11,7 @@ while True:
     temp = round(temp,2)
     streamer.log("Temperature", temp)
     print (temp)
-    streamer.flush() 
+    speed = grovepi.anenometerRead()
+    streamer.log("Wind Speed", speed)
+    streamer.flush()
     time.sleep(30)
