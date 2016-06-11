@@ -7,6 +7,9 @@ streamer = Streamer(bucket_name="weather", bucket_key="63CXMKAEQVFR", access_key
 sensor = 1
 vane = 0
 
+grovepi.pinMode(sensor, "INPUT")
+grovepi.pinMode(vane, "INPUT")
+
 while True:
     temp = grovepi.temp36(sensor)
     temp = round(temp,2)
