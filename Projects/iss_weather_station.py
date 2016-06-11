@@ -10,4 +10,5 @@ while True:
     temp = grovepi.temp36(sensor)
     temp = round(temp,2)
     streamer.log("Temperature", temp)
+    print (temp)
     time.sleep(30)
