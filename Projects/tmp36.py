@@ -1,7 +1,7 @@
 import grovepi
 import time
 
-sensor 1
+sensor = 1
 
 grovepi.pinMode(sensor, "INPUT")
 
