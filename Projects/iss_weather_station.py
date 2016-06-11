@@ -25,7 +25,7 @@ while True:
     #time.sleep(1)
 
     direction = grovepi.analogRead(vane)
-    #print direction
+    print direction
     if direction == 234:
         streamer.log("Wind Direction", "North")
         #print "North"

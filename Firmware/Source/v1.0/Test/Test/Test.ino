@@ -39,7 +39,6 @@ void setup()
 
     pinMode(anenometerPin, INPUT_PULLUP);
     attachInterrupt(digitalPinToInterrupt(anenometerPin), rpm_fan, FALLING);
-    analogReference(EXTERNAL);
 
 
 }
