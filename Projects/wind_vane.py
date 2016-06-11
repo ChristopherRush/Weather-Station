@@ -5,6 +5,6 @@ vane = 0
 
 
 while True:
-    direction = analogRead(vane)
+    direction = grovepi.analogRead(vane)
     print direction
     time.sleep(1)
