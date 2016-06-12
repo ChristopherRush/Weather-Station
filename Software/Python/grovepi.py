@@ -124,7 +124,7 @@ def analogWrite(pin, value):
 # Read the value of the Rain Gauge
 def rain_gauge(pin):
 	write_i2c_block(address, rain_cmd + [unused, unused, unused])
-	time.sleep(.2)
+	time.sleep(.1)
 	val = read_i2c_byte(address)
 	mm = val * 0.3
 	return mm
@@ -142,7 +142,7 @@ def temp36(pin):
 # Read value from Grove Ultrasonic
 def anenometerRead():
 	write_i2c_block(address, aa_cmd + [unused, unused, unused])
-	time.sleep(.2)
+	time.sleep(.1)
 	number = read_i2c_byte(address)
 	rpm = number * 60
 	mph = 0.7 * 3.14 * rpm * 60 / 5280
