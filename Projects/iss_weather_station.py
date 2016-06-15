@@ -55,9 +55,5 @@ while True:
     print (speed)
     time.sleep(1)
 
-    inches = grovepi.rain_gauge(gauge)
-    streamer.log("Rain mm", inches)
-    print (inches)
-
     streamer.flush()
     time.sleep(30)
