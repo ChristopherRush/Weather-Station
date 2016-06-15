@@ -11,6 +11,8 @@ vane = 0
 grovepi.pinMode(sensor, "INPUT")
 grovepi.pinMode(vane, "INPUT")
 
+speedlist = []
+
 while True:
 
     streamer.log(":house: Location", "Preston, Lancashire :flag_gb:")
@@ -58,7 +60,8 @@ while True:
 
     speed = grovepi.anenometerRead()
     streamer.log(":wind_blowing_face: Wind Speed", speed)
-    print (speed)
+    speedlist.append(speed)
+    print (speedlist)
     time.sleep(1)
 
     inches = grovepi.rain_gauge()
