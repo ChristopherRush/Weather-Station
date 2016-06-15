@@ -18,7 +18,7 @@ while True:
     number = round(number, 2)
     print (number)
     streamer.log("Temperature", number)
-    #time.sleep(1)
+    time.sleep(1)
 
 
 
@@ -48,11 +48,12 @@ while True:
     elif direction == 559:
         streamer.log("Wind Direction", "North East")
         #print "North East"
-    #time.sleep(1)
+    time.sleep(1)
 
     speed = grovepi.anenometerRead()
     streamer.log("Wind Speed", speed)
     print (speed)
+    time.sleep(1)
 
     inches = grovepi.rain_gauge(gauge)
     streamer.log("Rain mm", inches)
