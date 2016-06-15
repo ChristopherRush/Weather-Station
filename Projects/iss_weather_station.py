@@ -14,6 +14,7 @@ grovepi.pinMode(vane, "INPUT")
 
 speedlist = []
 resetvalue = 0
+average = 0
 
 while True:
 
@@ -63,7 +64,9 @@ while True:
     speed = grovepi.anenometerRead()
     streamer.log(":wind_blowing_face: Wind Speed", speed)
     speedlist.append(speed)
-    print sum(speedlist) / float(len(speedlist))
+    average = sum(speedlist) / float(len(speedlist))
+    print round(average, 2)
+    
     resetvalue += 1
     if resetvalue == 10:
         resetvalue = 0
