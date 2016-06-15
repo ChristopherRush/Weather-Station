@@ -8,10 +8,12 @@ streamer = Streamer(bucket_name="weather", bucket_key="63CXMKAEQVFR", access_key
 sensor = 1
 vane = 0
 
+
 grovepi.pinMode(sensor, "INPUT")
 grovepi.pinMode(vane, "INPUT")
 
 speedlist = []
+resetvalue = 0
 
 while True:
 
