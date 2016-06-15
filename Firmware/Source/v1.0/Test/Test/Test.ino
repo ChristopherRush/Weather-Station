@@ -55,16 +55,15 @@ if (millis() - lastmillis == 1000){
   lastmillis = millis();
   attachInterrupt(0, rpm_fan, FALLING);
   }
-if (rpm > 0){
+
+state = digitalRead(rainpin);
+if (state == HIGH){
   digitalWrite(13, HIGH);
+  inches++;
+  delay(100);
 }
 else{
   digitalWrite(13, LOW);
-}
-state = digitalRead(rainpin);
-if (state == HIGH){
-  inches++;
-  //delay(100);
 }
 
 
