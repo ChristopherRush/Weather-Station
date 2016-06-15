@@ -27,6 +27,7 @@ int rainpin = 3;
 int inches;
 int state;
 
+
 int pin;
 int j;
 

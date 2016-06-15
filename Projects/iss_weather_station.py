@@ -53,10 +53,10 @@ while True:
     speed = grovepi.anenometerRead()
     streamer.log("Wind Speed", speed)
     print (speed)
-/*
+
     inches = grovepi.rain_gauge(gauge)
     streamer.log("Rain mm", inches)
     print (inches)
-*/
+
     streamer.flush()
     time.sleep(30)
