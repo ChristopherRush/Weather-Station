@@ -80,7 +80,7 @@ while True:
 
     streamer.flush()
 
-    if strftime("%H") > 06 && strftime("%H") < 22:
+    if strftime("%H") > 06 and strftime("%H") < 22:
         time.sleep(60)
         print "Time 60"
     else:
