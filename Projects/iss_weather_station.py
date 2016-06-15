@@ -23,7 +23,7 @@ while True:
     number = (volt - 0.5) * 100
     number = round(number, 2)
     print (number)
-    streamer.log("Temperature", number)
+    streamer.log(":thermometer: Temperature", number)
     time.sleep(1)
 
 
@@ -57,13 +57,13 @@ while True:
     time.sleep(1)
 
     speed = grovepi.anenometerRead()
-    streamer.log("Wind Speed", speed)
+    streamer.log(":wind_blowing_face: Wind Speed", speed)
     print (speed)
     time.sleep(1)
 
     inches = grovepi.rain_gauge()
     print (inches)
-    streamer.log("Rain mm", inches)
+    streamer.log(":droplet: Rain mm", inches)
     time.sleep(1)
 
     streamer.flush()
