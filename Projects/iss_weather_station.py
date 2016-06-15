@@ -6,6 +6,7 @@ streamer = Streamer(bucket_name="weather", bucket_key="63CXMKAEQVFR", access_key
 
 sensor = 1
 vane = 0
+gauge = 3
 
 grovepi.pinMode(sensor, "INPUT")
 grovepi.pinMode(vane, "INPUT")
@@ -19,7 +20,7 @@ while True:
     streamer.log("Temperature", number)
     #time.sleep(1)
 
-    
+
 
     direction = grovepi.analogRead(vane)
     print direction
@@ -52,6 +53,10 @@ while True:
     speed = grovepi.anenometerRead()
     streamer.log("Wind Speed", speed)
     print (speed)
+
+    inches = grovepi.rain_gauge(gauge)
+    streamer.log("Rain mm", inches)
+    print (inches)
 
     streamer.flush()
     time.sleep(30)
