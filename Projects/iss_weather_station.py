@@ -81,8 +81,8 @@ while True:
     streamer.flush()
 
     if strftime("%H") > 06 and strftime("%H") < 22:
-        time.sleep(60)
         print "Time 60"
+        time.sleep(60)
     else:
-        time.sleep(3600)
         print "Time 1hr"
+        time.sleep(3600)
