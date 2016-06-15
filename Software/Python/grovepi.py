@@ -122,7 +122,7 @@ def analogWrite(pin, value):
 	return 1
 
 # Read the value of the Rain Gauge
-def rain_gauge(pin):
+def rain_gauge():
 	write_i2c_block(address, rain_cmd + [unused, unused, unused])
 	time.sleep(.1)
 	val = read_i2c_byte(address)

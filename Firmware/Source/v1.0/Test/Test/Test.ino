@@ -33,7 +33,7 @@ int j;
 
 void setup()
 {
-    pinMode(13, OUTPUT); 
+    pinMode(13, OUTPUT);
     //Serial.begin(9600);
     Wire.begin(SLAVE_ADDRESS);
 
@@ -64,7 +64,7 @@ else{
 state = digitalRead(rainpin);
 if (state == HIGH){
   inches++;
-  delay(100);
+  //delay(100);
 }
 
 
@@ -121,7 +121,7 @@ void sendData()
     Wire.write(b, 3);
   if(cmd[0] == 6)
   {
-  Wire.write(inches);
+    Wire.write(inches);
   }
   if(cmd[0] == 7)
   {
