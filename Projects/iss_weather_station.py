@@ -12,6 +12,9 @@ grovepi.pinMode(sensor, "INPUT")
 grovepi.pinMode(vane, "INPUT")
 
 while True:
+
+    streamer.log(":house: Location", "Preston, Lancashire :flag_gb:")
+
     print(strftime("%H:%M"))
     streamer.log(":clock3: Updated Time", strftime("%H:%M"))
 
@@ -64,4 +67,4 @@ while True:
     time.sleep(1)
 
     streamer.flush()
-    time.sleep(30)
+    time.sleep(60)
