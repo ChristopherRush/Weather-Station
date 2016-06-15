@@ -61,7 +61,9 @@ while True:
     speed = grovepi.anenometerRead()
     streamer.log(":wind_blowing_face: Wind Speed", speed)
     speedlist.append(speed)
-    print (speedlist)
+    print sum(speedlist) / float(len(speedlist))
+
+    print (speed)
     time.sleep(1)
 
     inches = grovepi.rain_gauge()
@@ -70,4 +72,4 @@ while True:
     time.sleep(1)
 
     streamer.flush()
-    time.sleep(60)
+    time.sleep(10)
