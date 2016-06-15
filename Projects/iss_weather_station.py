@@ -82,5 +82,7 @@ while True:
 
     if strftime("%H") > 06 && strftime("%H") < 22:
         time.sleep(60)
+        print "Time 60"
     else:
         time.sleep(3600)
+        print "Time 1hr"
