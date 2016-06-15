@@ -6,7 +6,7 @@ int cmd[5];
 int index=0;
 int flag=0;
 int i;
-byte val=0,b[21],float_array[4],mph_b[3];
+byte val=0,b[21],float_array[4],mph_b[3],rate=0, mm=0;
 unsigned char dta[21];
 int length;
 int aRead=0;
@@ -25,6 +25,7 @@ unsigned long lastmillis = 0;
 //rain sensor
 int rainpin = 3;
 int inches;
+
 int state;
 
 
@@ -85,7 +86,11 @@ else if(cmd[0]==3)
 
 else if(cmd[0]==7)
   {
-    val = rpm;
+    rate = rpm;
+  }
+else if(cmd[0]==6)
+  {
+    mm = inches;
   }
 
 //Set up Analog Write
@@ -114,17 +119,19 @@ void receiveData(int byteCount)
 
 void sendData()
 {
-  if(cmd[0] == 1)
+  if(cmd[0] == 1){
     Wire.write(val);
-  if(cmd[0] == 3 || cmd[0] == 56)
-    Wire.write(b, 3);
-  if(cmd[0] == 6)
-  {
-    Wire.write(inches);
   }
-  if(cmd[0] == 7)
+  else if(cmd[0] == 3){
+    Wire.write(b, 3);
+  }
+  else if(cmd[0] == 6)
   {
-    Wire.write(val);
+    Wire.write(mm);
+  }
+  else if(cmd[0] == 7)
+  {
+    Wire.write(rate);
   }
 }
 
