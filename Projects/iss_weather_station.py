@@ -66,7 +66,7 @@ while True:
     speedlist.append(speed)
     average = sum(speedlist) / float(len(speedlist))
     print round(average, 2)
-    
+
     resetvalue += 1
     if resetvalue == 10:
         resetvalue = 0
@@ -79,4 +79,8 @@ while True:
     time.sleep(1)
 
     streamer.flush()
-    time.sleep(60)
+
+    if strftime("%H") > 06 && strftime("%H") < 22:
+        time.sleep(60)
+    else:
+        time.sleep(3600)
