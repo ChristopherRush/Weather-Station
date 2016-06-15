@@ -1,4 +1,5 @@
 import time
+from time import strftime
 import grovepi
 from ISStreamer.Streamer import Streamer
 
@@ -11,6 +12,10 @@ grovepi.pinMode(sensor, "INPUT")
 grovepi.pinMode(vane, "INPUT")
 
 while True:
+    strftime("%H:%M")
+    print(strftime)
+    streamer.log(":clock3: Updated Time", strftime)
+
     temp = grovepi.analogRead(sensor)
     volt = temp * 5.0 / 1024
     number = (volt - 0.5) * 100
