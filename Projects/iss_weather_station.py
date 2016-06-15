@@ -62,8 +62,10 @@ while True:
     streamer.log(":wind_blowing_face: Wind Speed", speed)
     speedlist.append(speed)
     print sum(speedlist) / float(len(speedlist))
-
-    print (speed)
+    resetvalue += 1
+    if resetvalue == 10:
+        resetvalue = 0
+        speedlist = []
     time.sleep(1)
 
     inches = grovepi.rain_gauge()
@@ -72,4 +74,4 @@ while True:
     time.sleep(1)
 
     streamer.flush()
-    time.sleep(10)
+    time.sleep(60)
