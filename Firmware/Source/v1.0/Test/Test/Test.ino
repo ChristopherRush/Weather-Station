@@ -33,7 +33,7 @@ int j;
 void setup()
 {
     pinMode(13, OUTPUT); 
-    Serial.begin(9600);
+    //Serial.begin(9600);
     Wire.begin(SLAVE_ADDRESS);
 
     Wire.onReceive(receiveData);
@@ -63,7 +63,7 @@ else{
 state = digitalRead(rainpin);
 if (state == HIGH){
   inches++;
-  delay(250);
+  delay(100);
 }
 
 
