@@ -1,6 +1,9 @@
 #include <Wire.h>
+#include <DHT.h>
 
+#define DHTPIN 6
 #define SLAVE_ADDRESS 0x04
+#define DHTTYPE DHT22
 
 int cmd[5];
 int index=0;
@@ -28,12 +31,16 @@ int inches;
 
 int state;
 
+int h;
+int t;
+DHT dht(DHTPIN, DHTTYPE);
 
 int pin;
 int j;
 
 void setup()
 {
+    dht.begin();
     pinMode(13, OUTPUT);
     //Serial.begin(9600);
     Wire.begin(SLAVE_ADDRESS);
@@ -92,6 +99,10 @@ else if(cmd[0]==6)
   {
     mm = inches;
   }
+else if(cmd[0]==8)
+  {
+  h = dht.readHumidity();
+  }
 
 //Set up Analog Write
 else if(cmd[0]==4)
@@ -132,6 +143,10 @@ void sendData()
   else if(cmd[0] == 7)
   {
     Wire.write(rate);
+  }
+  else if(cmd[0] == 8)
+  {
+   Wire.write(h);
   }
 }
 
