@@ -1,4 +1,5 @@
 import grovepi
+import time
 
 while True:
         # Read distance value from Ultrasonic
