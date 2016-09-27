@@ -23,14 +23,19 @@ while True:
     print(strftime("%H:%M"))
     streamer.log(":clock3: Updated Time", strftime("%H:%M"))
 
-    temp = grovepi.analogRead(sensor)
-    volt = temp * 5.0 / 1024
-    number = (volt - 0.5) * 100
-    number = round(number, 2)
-    print (number)
-    streamer.log(":thermometer: Temperature", number)
+#    temp = grovepi.analogRead(sensor)
+#    volt = temp * 5.0 / 1024
+#    number = (volt - 0.5) * 100
+#    number = round(number, 2)
+    temp = grovepi.temperature()
+    print (temp)
+    streamer.log(":thermometer: Temperature", temp)
     time.sleep(1)
 
+    humid = grovepi.humidity()
+    print (humid)
+    streamer.log(":thermometer: Humidity", humid"%")
+    time.sleep(1)
 
 
     direction = grovepi.analogRead(vane)
