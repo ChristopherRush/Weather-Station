@@ -148,7 +148,7 @@ void sendData()
   }
   else if(cmd[0] == 8)
   {
-   Wire.write(h);
+   Wire.write(22);
   }
 }
 
