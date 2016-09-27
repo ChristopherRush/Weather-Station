@@ -11,7 +11,7 @@ int cmd[5];
 int index=0;
 int flag=0;
 int i;
-byte val=0,b[21],float_array[4],mph_b[3],rate=0, mm=0;
+byte val=0,b[21],float_array[4],mph_b[3],rate=0, mm=0, hum=0, tmp=0;
 unsigned char dta[21];
 int length;
 int aRead=0;
@@ -104,6 +104,12 @@ else if(cmd[0]==6)
 else if(cmd[0]==8)
   {
   h = dht.readHumidity();
+  hum = h;
+  }
+else if(cmd[0]==9)
+  {
+  t = dht.readTemperature();
+  tmp = t;
   }
 
 //Set up Analog Write
@@ -148,7 +154,11 @@ void sendData()
   }
   else if(cmd[0] == 8)
   {
-   Wire.write(22);
+   Wire.write(hum);
+  }
+  else if(cmd[0] == 9)
+  {
+  Wire.write(tmp);
   }
 }
 

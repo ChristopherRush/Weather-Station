@@ -48,8 +48,10 @@ pMode_cmd = [5]
 rain_cmd = [6]
 # Anenometer read
 aa_cmd = [7]
-# Humidity read
+# Humidity read DHT22
 hum_cmd = [8]
+# Temperature read DHT22
+tmp_cmd = [9]
 
 # This allows us to be more specific about which commands contain unused bytes
 unused = 0
@@ -136,6 +138,12 @@ def humidity():
 	time.sleep(.1)
 	hum = read_i2c_byte(address)
 	return hum
+
+def temperature():
+	write_i2c_block(address, tmp_cmd + [unused, unused, unused])
+	time.sleep(.1)
+	hum = read_i2c_byte(address)
+	return temp
 
 # Read temp in Celsius from Grove Temperature Sensor
 def temp36(pin):
