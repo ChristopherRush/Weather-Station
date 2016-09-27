@@ -34,7 +34,7 @@ while True:
 
     humid = grovepi.humidity()
     print (humid)
-    streamer.log(":thermometer: Humidity", humid"%")
+    streamer.log(":thermometer: Humidity", humid+"%")
     time.sleep(1)
 
 
