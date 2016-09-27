@@ -142,7 +142,7 @@ def humidity():
 def temperature():
 	write_i2c_block(address, tmp_cmd + [unused, unused, unused])
 	time.sleep(.1)
-	hum = read_i2c_byte(address)
+	temp = read_i2c_byte(address)
 	return temp
 
 # Read temp in Celsius from Grove Temperature Sensor
